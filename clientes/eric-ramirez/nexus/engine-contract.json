@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "engine": "josuechavando350-png/nexus-experience-engine",
+  "projectId": "eric-ramirez",
+  "clientProject": true,
+  "productionRoot": "clientes/eric-ramirez/dist",
+  "golden": {
+    "artifact": "eric_ramirez_NEXUS33_oro.html",
+    "sha256": "6aecd629c3a11d0a745fc4425b47282fa60b6641f773d1b4a0bb4d0c62ff2a60"
+  },
+  "gates": [
+    "PROJECT_DNA",
+    "SCOPE_LOCK",
+    "STATIC_INTEGRITY",
+    "ROUTE_INTEGRITY",
+    "A11Y_STATIC",
+    "SEO_STATIC",
+    "BROWSER_QA",
+    "VISUAL_PARITY",
+    "PAGESPEED_LIVE"
+  ],
+  "failClosed": true,
+  "notTestedIsPass": false
+}
