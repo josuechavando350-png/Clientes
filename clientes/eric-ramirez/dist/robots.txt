@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /historias.html
+Disallow: /recursos.html
+Sitemap: https://ericramirez.com.mx/sitemap.xml
