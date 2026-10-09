@@ -1,0 +1,44 @@
+name: Eric Ramirez · Nexus Static Gate
+
+on:
+  push:
+    paths:
+      - 'clientes/eric-ramirez/**'
+      - '.nexus/registry.json'
+      - '.github/workflows/eric-nexus-static.yml'
+  pull_request:
+    paths:
+      - 'clientes/eric-ramirez/**'
+      - '.nexus/registry.json'
+
+permissions:
+  contents: read
+
+jobs:
+  nexus-static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install certification dependencies
+        run: python -m pip install --disable-pip-version-check -r clientes/eric-ramirez/requirements-ci.txt
+      - name: Verify Eric client scope and static certification
+        run: |
+          cd clientes/eric-ramirez
+          python3 scripts/certify_static.py
+      - name: Assert fail-closed PageSpeed gate
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('clientes/eric-ramirez/nexus/certification.json')
+          d=json.loads(p.read_text())
+          live=d.get('pageSpeedLive') or d.get('pagespeedLive') or d.get('pagespeed')
+          if live and live.get('status') == 'PASS':
+              print('Live PageSpeed evidence already present')
+          else:
+              print('PAGESPEED_LIVE=NOT_TESTED (expected before Vercel)')
+          PY
