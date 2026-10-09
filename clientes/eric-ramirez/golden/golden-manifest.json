@@ -1,7 +1,0 @@
-{
-  "artifact": "eric_ramirez_NEXUS33_oro.html",
-  "sha256": "6aecd629c3a11d0a745fc4425b47282fa60b6641f773d1b4a0bb4d0c62ff2a60",
-  "bytes": 6758420,
-  "status": "IMMUTABLE_SOURCE_RETAINED_OUTSIDE_PUBLIC_REPO_DURING_PUBLIC_STAGE",
-  "note": "Production was deterministically derived from this exact Golden. Upload the original byte-for-byte after repository privacy is enabled."
-}
