@@ -1,0 +1,18 @@
+{
+  "clientId": "eric-ramirez",
+  "allowedWriteGlobs": [
+    "clientes/eric-ramirez/**",
+    ".nexus/registry.json",
+    ".github/workflows/eric-nexus-static.yml",
+    "CLIENTS.md",
+    "README.md"
+  ],
+  "deniedGlobs": [
+    "**/cano/**",
+    "**/cano-penal/**",
+    "**/*cano*penal*"
+  ],
+  "deployment": {
+    "vercel": "DENY_UNTIL_EXPLICIT_PHASE"
+  }
+}
