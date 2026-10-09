@@ -1,0 +1,4 @@
+# Datos del panel: viven solo en el servidor, nunca en GitHub
+cms-datos/
+media/*
+!media/.htaccess

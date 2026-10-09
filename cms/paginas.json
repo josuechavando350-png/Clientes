@@ -1,0 +1,16 @@
+{
+ "home": "index.html",
+ "conoceme": "conoceme.html",
+ "servicios": "servicios.html",
+ "areas": "areas/index.html",
+ "areas/defensa-fiscal": "areas/defensa-fiscal.html",
+ "areas/derecho-penal-patrimonial": "areas/derecho-penal-patrimonial.html",
+ "areas/amparo": "areas/amparo.html",
+ "areas/intangibles": "areas/intangibles.html",
+ "eric-tv": "eric-tv.html",
+ "medios": "medios.html",
+ "historias": "historias.html",
+ "recursos": "recursos.html",
+ "clientes": "clientes.html",
+ "contacto": "contacto.html"
+}

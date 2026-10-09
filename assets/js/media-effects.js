@@ -6,7 +6,7 @@
 const webCtx=(()=>{try{return /^https?:\/\//.test(self.origin)&&/^https?:/.test(document.baseURI)}catch(e){return false}})();
 const srcOf=a=>{const k=a.dataset.kind,id=a.dataset.id;
  if(k==='yt')return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&playsinline=1&modestbranding=1&origin=${encodeURIComponent(self.origin)}`;
- if(k==='sp')return `https://open.spotify.com/embed/episode/${id}?utm_source=generator&theme=0&autoplay=1`;
+ if(k==='sp')return `https://open.spotify.com/embed/${a.dataset.type||'episode'}/${id}?utm_source=generator&theme=0&autoplay=1`;
  if(k==='tt')return `https://www.tiktok.com/player/v1/${id}?autoplay=1&loop=1&description=0&music_info=0&rel=0`;
  return ''};
 const canEmbed=a=>{const k=a.dataset.kind;if(k==='sp')return true;if(!webCtx)return false;return k==='yt'||(k==='tt'&&!!a.dataset.id)};

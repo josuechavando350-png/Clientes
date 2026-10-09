@@ -1,0 +1,5 @@
+# Panel privado: no se guarda en caché ni aparece en Google
+<IfModule mod_headers.c>
+  Header always set Cache-Control "no-store"
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>

@@ -1,0 +1,39 @@
+# ===== ericramirez.com.mx · sitio + panel =====
+DirectoryIndex index.html index.php
+Options -Indexes
+
+<IfModule mod_headers.c>
+  # El panel muestra el sitio dentro de sí mismo (mismo dominio)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Sin esto, YouTube muestra "Error 153" en el reproductor
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  <FilesMatch "^index\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# Archivos que nunca deben verse desde internet
+<FilesMatch "(\.(md|sql|log|bak|tmp|zip|json)|^\.ht.*|^\.git.*|config\.php|composer\..*)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^panel$ /panel/ [R=301,L]
+  RewriteRule ^cms-datos(/|$) - [F,L]
+  RewriteRule ^cms(/|$) - [F,L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
